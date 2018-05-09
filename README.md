@@ -55,7 +55,7 @@ export default {
 
 ### :link::x: Using a CDN
 
-Sorry! No CDN available for VueLink by now.
+Sorry! No CDN available for VueLink right now.
 
 ## :hammer_and_wrench: Usage
 
@@ -79,7 +79,7 @@ You can use the `external` prop to force treating it as external link as well.
 | ---  |       ---        |   ---   |
 | to   |  :x:             | The target of the link. If not set, the link will not be bound (no "empty href")|
 | rel  |:white_check_mark:| Will be passed as `rel` attribute to the anchor tag|
-|newTag|:white_check_mark:| If truthy, set `target` attribute to `_blank`|
+|newTab|:white_check_mark:| If truthy, set `target` attribute to `_blank`|
 |target|:white_check_mark:| Will be passed as `target` attribute to the anchor tag|
 |external|:white_check_mark:| Force to treat the link as external link (use anchor instead of vue-router tag)|
 
