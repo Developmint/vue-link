@@ -81,6 +81,7 @@ You can use the `external` prop to force treating it as external link as well.
 | rel  |:white_check_mark:| Will be passed as `rel` attribute to the anchor tag|
 |newTag|:white_check_mark:| If truthy, set `target` attribute to `_blank`|
 |target|:white_check_mark:| Will be passed as `target` attribute to the anchor tag|
+|external|:white_check_mark:| Force to treat the link as external link (use anchor instead of vue-router tag)|
 
 
 ### Example usage
