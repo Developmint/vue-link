@@ -10,8 +10,7 @@ module.exports = {
   },
   extends: 'standard',
   plugins: [
-    'jest',
-    'vue'
+    'jest'
   ],
   rules: {
     // Allow paren-less arrow functions

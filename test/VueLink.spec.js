@@ -1,7 +1,7 @@
 /* eslint-disable no-console */
 import { createLocalVue, mount, RouterLinkStub } from '@vue/test-utils'
 import VueRouter from 'vue-router'
-import VueLink from '@/VueLink'
+import VueLink from '../lib'
 
 const localVue = createLocalVue()
 localVue.use(VueRouter)
