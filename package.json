@@ -13,7 +13,6 @@
     "url": "https://github.com/Developmint/vue-link/issues"
   },
   "scripts": {
-    "dev": "nuxt test/fixture",
     "lint": "eslint lib test",
     "test": "npm run lint && jest",
     "release": "standard-version && git push --follow-tags && npm publish",
@@ -54,8 +53,7 @@
     ],
     "collectCoverage": true,
     "coveragePathIgnorePatterns": [
-      "/node_modules/",
-      "/test/fixtures"
+      "/node_modules/"
     ]
   },
   "devDependencies": {
