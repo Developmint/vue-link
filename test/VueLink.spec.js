@@ -78,6 +78,28 @@ describe('VueLink', () => {
 
       expect(wrapper.html()).toBe('<a href="https://example.com/"><div>Hi</div></a>')
     })
+    it('does trigger external on // link', () => {
+      const wrapper = mount(VueLink, {
+        localVue,
+        attachToDocument: true,
+        stubs: {
+          RouterLink: RouterLinkStub
+        },
+        context: {
+          props: {
+            to: '//example.com/'
+          }
+        },
+        slots: {
+          default: '<div>Hi</div>'
+        }
+      })
+
+      expect(wrapper.isVueInstance()).toBe(true)
+      expect(wrapper.contains(RouterLinkStub)).toBe(false)
+
+      expect(wrapper.html()).toBe('<a href="//example.com/"><div>Hi</div></a>')
+    })
     it('does trigger external on external prop set', () => {
       const wrapper = mount(VueLink, {
         localVue,
