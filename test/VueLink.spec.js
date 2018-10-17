@@ -7,7 +7,7 @@ const localVue = createLocalVue()
 localVue.use(VueRouter)
 
 describe('VueLink', () => {
-  describe('route-link', () => {
+  describe('router-link', () => {
     it('does link to the correct internal page', () => {
       const wrapper = mount(VueLink, {
         localVue,
@@ -51,7 +51,7 @@ describe('VueLink', () => {
         }
       })
 
-      expect(wrapper.isVueInstance()).toBe(true)
+      expect(wrapper.isVueInstance()).toBe(false)
       expect(wrapper.contains(RouterLinkStub)).toBe(false)
 
       expect(wrapper.html()).toBe('<a href="http://example.com/"><div>Hi</div></a>')
@@ -73,7 +73,7 @@ describe('VueLink', () => {
         }
       })
 
-      expect(wrapper.isVueInstance()).toBe(true)
+      expect(wrapper.isVueInstance()).toBe(false)
       expect(wrapper.contains(RouterLinkStub)).toBe(false)
 
       expect(wrapper.html()).toBe('<a href="https://example.com/"><div>Hi</div></a>')
@@ -95,7 +95,7 @@ describe('VueLink', () => {
         }
       })
 
-      expect(wrapper.isVueInstance()).toBe(true)
+      expect(wrapper.isVueInstance()).toBe(false)
       expect(wrapper.contains(RouterLinkStub)).toBe(false)
 
       expect(wrapper.html()).toBe('<a href="//example.com/"><div>Hi</div></a>')
@@ -118,7 +118,7 @@ describe('VueLink', () => {
         }
       })
 
-      expect(wrapper.isVueInstance()).toBe(true)
+      expect(wrapper.isVueInstance()).toBe(false)
       expect(wrapper.contains(RouterLinkStub)).toBe(false)
 
       expect(wrapper.html()).toBe('<a href="/far-away"><div>Hi</div></a>')
@@ -141,7 +141,7 @@ describe('VueLink', () => {
         }
       })
 
-      expect(wrapper.isVueInstance()).toBe(true)
+      expect(wrapper.isVueInstance()).toBe(false)
       expect(wrapper.contains(RouterLinkStub)).toBe(false)
 
       expect(wrapper.html()).toBe('<a href="http://example.com" rel="nofollow"><div>Hi</div></a>')
@@ -164,7 +164,7 @@ describe('VueLink', () => {
         }
       })
 
-      expect(wrapper.isVueInstance()).toBe(true)
+      expect(wrapper.isVueInstance()).toBe(false)
       expect(wrapper.contains(RouterLinkStub)).toBe(false)
 
       expect(wrapper.html()).toBe('<a href="http://example.com" target="_blank"><div>Hi</div></a>')
@@ -187,7 +187,7 @@ describe('VueLink', () => {
         }
       })
 
-      expect(wrapper.isVueInstance()).toBe(true)
+      expect(wrapper.isVueInstance()).toBe(false)
       expect(wrapper.contains(RouterLinkStub)).toBe(false)
 
       expect(wrapper.html()).toBe('<a href="https://example.com" target="_parent"><div>Hi</div></a>')
@@ -204,7 +204,7 @@ describe('VueLink', () => {
         }
       })
 
-      expect(wrapper.isVueInstance()).toBe(true)
+      expect(wrapper.isVueInstance()).toBe(false)
       expect(wrapper.contains(RouterLinkStub)).toBe(false)
 
       expect(wrapper.html()).toBe('<a><div>Hi</div></a>')
