@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="1.4.0"></a>
+# [1.4.0](https://github.com/Developmint/vue-link/compare/v1.3.0...v1.4.0) (2018-10-18)
+
+
+### Features
+
+* add slash forcing components and option ([d3f31a5](https://github.com/Developmint/vue-link/commit/d3f31a5))
+
+
+
 <a name="1.3.0"></a>
 # [1.3.0](https://github.com/Developmint/vue-link/compare/v1.2.0...v1.3.0) (2018-05-14)
 
