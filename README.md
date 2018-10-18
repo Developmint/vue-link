@@ -33,6 +33,8 @@ $ npm install vue-link
 
 ```js
 import VueLink from 'vue-link'
+// or the slash-forcing variants
+// import { VueLink, VueLinkAddSlash, VueLinkStripSlash } from 'vue-link'
 
 export default {
   components: {
@@ -75,14 +77,23 @@ You can use the `external` prop to force treating it as external link as well.
 ### Prop overview
 
 
-| Prop |  External only?  | Comment |
-| ---  |       ---        |   ---   |
-| to   |  :x:             | The target of the link. If not set, the link will not be bound (no "empty href")|
-| rel  |:white_check_mark:| Will be passed as `rel` attribute to the anchor tag|
-|newTab|:white_check_mark:| If truthy, set `target` attribute to `_blank`|
-|target|:white_check_mark:| Will be passed as `target` attribute to the anchor tag|
-|external|:white_check_mark:| Force to treat the link as external link (use anchor instead of vue-router tag)|
+| Prop  |  External only?  | Comment |
+| ---   |       ---        |   ---   |
+| to    |  :x:             | The target of the link. If not set, the link will not be bound (no "empty href")|
+| rel   |:white_check_mark:| Will be passed as `rel` attribute to the anchor tag|
+|newTab |:white_check_mark:| If truthy, set `target` attribute to `_blank`|
+|target |:white_check_mark:| Will be passed as `target` attribute to the anchor tag|
+|slashes  | Internal only!   | Settings: `'strip'`, `'add'` or `false`(default). Will force slash endings to either strip or add trailing slashes to your url (`/a` -> `/a/` in `add` mode, vice-versa in `strip`. **Only for internal links**! Also, this will not take query strings into account. Please use `router-link`'s `query` option for them|
+|external |:white_check_mark:| Force to treat the link as external link (use anchor instead of vue-router tag)|
 
+### Types
+
+With `v.1.4.0` two extra components were introduced that reflect the `slashes` settings.
+You can import them (like the normal `VueLink` component as named imports).
+The `default` export of the package is still the normal `VueLink` component so no breaking changes
+have been introduced
+
+`import { VueLink, VueLinkAddSlash, VueLinkStripSlash } from '../lib'`
 
 ### Example usage
 
@@ -95,6 +106,7 @@ You can use the `external` prop to force treating it as external link as well.
     This is the link text ;)
 </vue-link>
 ```
+
 ## :gear: Contributing
 
 Please see our [CONTRIBUTING.md](./CONTRIBUTING.md)
