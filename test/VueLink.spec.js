@@ -1,7 +1,7 @@
 /* eslint-disable no-console */
 import { createLocalVue, mount, RouterLinkStub } from '@vue/test-utils'
 import VueRouter from 'vue-router'
-import VueLink from '../lib'
+import { VueLink, VueLinkAddSlash, VueLinkStripSlash } from '../lib'
 
 const localVue = createLocalVue()
 localVue.use(VueRouter)
@@ -31,6 +31,30 @@ describe('VueLink', () => {
       const link = wrapper.find(RouterLinkStub)
 
       expect(link.vm.$props.to).toBe('/test')
+    })
+    it('adds slashes', () => {
+      const wrapper = mount(VueLinkAddSlash, {
+        localVue,
+        attachToDocument: true,
+        stubs: {
+          RouterLink: RouterLinkStub
+        },
+        context: {
+          props: {
+            to: '/test'
+          }
+        },
+        slots: {
+          default: '<div>Hi</div>'
+        }
+      })
+
+      expect(wrapper.isVueInstance()).toBe(true)
+      expect(wrapper.contains(RouterLinkStub)).toBe(true)
+
+      const link = wrapper.find(RouterLinkStub)
+
+      expect(link.vm.$props.to).toBe('/test/')
     })
   })
   describe('external', () => {
@@ -209,5 +233,203 @@ describe('VueLink', () => {
 
       expect(wrapper.html()).toBe('<a><div>Hi</div></a>')
     })
+  })
+})
+
+describe('VueLinkStripSlash', () => {
+  it('strips slashes', () => {
+    const wrapper = mount(VueLinkStripSlash, {
+      localVue,
+      attachToDocument: true,
+      stubs: {
+        RouterLink: RouterLinkStub
+      },
+      context: {
+        props: {
+          to: '/test/'
+        }
+      },
+      slots: {
+        default: '<div>Hi</div>'
+      }
+    })
+
+    expect(wrapper.isVueInstance()).toBe(true)
+    expect(wrapper.contains(RouterLinkStub)).toBe(true)
+
+    const link = wrapper.find(RouterLinkStub)
+
+    expect(link.vm.$props.to).toBe('/test')
+  })
+  it('strips from link with hash', () => {
+    const wrapper = mount(VueLinkStripSlash, {
+      localVue,
+      attachToDocument: true,
+      stubs: {
+        RouterLink: RouterLinkStub
+      },
+      context: {
+        props: {
+          to: '/test/'
+        }
+      },
+      slots: {
+        default: '<div>Hi</div>'
+      }
+    })
+
+    expect(wrapper.isVueInstance()).toBe(true)
+    expect(wrapper.contains(RouterLinkStub)).toBe(true)
+
+    const link = wrapper.find(RouterLinkStub)
+
+    expect(link.vm.$props.to).toBe('/test')
+  })
+  it('does not strip anything if no slash present', () => {
+    const wrapper = mount(VueLinkStripSlash, {
+      localVue,
+      attachToDocument: true,
+      stubs: {
+        RouterLink: RouterLinkStub
+      },
+      context: {
+        props: {
+          to: '/test#abc'
+        }
+      },
+      slots: {
+        default: '<div>Hi</div>'
+      }
+    })
+
+    expect(wrapper.isVueInstance()).toBe(true)
+    expect(wrapper.contains(RouterLinkStub)).toBe(true)
+
+    const link = wrapper.find(RouterLinkStub)
+
+    expect(link.vm.$props.to).toBe('/test#abc')
+  })
+  it('does not strip anything from link with hash without slash', () => {
+    const wrapper = mount(VueLinkStripSlash, {
+      localVue,
+      attachToDocument: true,
+      stubs: {
+        RouterLink: RouterLinkStub
+      },
+      context: {
+        props: {
+          to: '/test#abc'
+        }
+      },
+      slots: {
+        default: '<div>Hi</div>'
+      }
+    })
+
+    expect(wrapper.isVueInstance()).toBe(true)
+    expect(wrapper.contains(RouterLinkStub)).toBe(true)
+
+    const link = wrapper.find(RouterLinkStub)
+
+    expect(link.vm.$props.to).toBe('/test#abc')
+  })
+})
+
+describe('VueLinkAddSlash', () => {
+  it('adds slashes', () => {
+    const wrapper = mount(VueLinkAddSlash, {
+      localVue,
+      attachToDocument: true,
+      stubs: {
+        RouterLink: RouterLinkStub
+      },
+      context: {
+        props: {
+          to: '/test'
+        }
+      },
+      slots: {
+        default: '<div>Hi</div>'
+      }
+    })
+
+    expect(wrapper.isVueInstance()).toBe(true)
+    expect(wrapper.contains(RouterLinkStub)).toBe(true)
+
+    const link = wrapper.find(RouterLinkStub)
+
+    expect(link.vm.$props.to).toBe('/test/')
+  })
+  it('adds slashes before hash', () => {
+    const wrapper = mount(VueLinkAddSlash, {
+      localVue,
+      attachToDocument: true,
+      stubs: {
+        RouterLink: RouterLinkStub
+      },
+      context: {
+        props: {
+          to: '/test#abc'
+        }
+      },
+      slots: {
+        default: '<div>Hi</div>'
+      }
+    })
+
+    expect(wrapper.isVueInstance()).toBe(true)
+    expect(wrapper.contains(RouterLinkStub)).toBe(true)
+
+    const link = wrapper.find(RouterLinkStub)
+
+    expect(link.vm.$props.to).toBe('/test/#abc')
+  })
+  it('does not add second slash', () => {
+    const wrapper = mount(VueLinkAddSlash, {
+      localVue,
+      attachToDocument: true,
+      stubs: {
+        RouterLink: RouterLinkStub
+      },
+      context: {
+        props: {
+          to: '/test/'
+        }
+      },
+      slots: {
+        default: '<div>Hi</div>'
+      }
+    })
+
+    expect(wrapper.isVueInstance()).toBe(true)
+    expect(wrapper.contains(RouterLinkStub)).toBe(true)
+
+    const link = wrapper.find(RouterLinkStub)
+
+    expect(link.vm.$props.to).toBe('/test/')
+  })
+  it('adds second slash before hash', () => {
+    const wrapper = mount(VueLinkAddSlash, {
+      localVue,
+      attachToDocument: true,
+      stubs: {
+        RouterLink: RouterLinkStub
+      },
+      context: {
+        props: {
+          to: '/test/#abc'
+        }
+      },
+      slots: {
+        default: '<div>Hi</div>'
+      }
+    })
+
+    expect(wrapper.isVueInstance()).toBe(true)
+    expect(wrapper.contains(RouterLinkStub)).toBe(true)
+
+    const link = wrapper.find(RouterLinkStub)
+
+    expect(link.vm.$props.to).toBe('/test/#abc')
   })
 })
