@@ -32,30 +32,6 @@ describe('VueLink', () => {
 
       expect(link.vm.$props.to).toBe('/test')
     })
-    it('adds slashes', () => {
-      const wrapper = mount(VueLinkAddSlash, {
-        localVue,
-        attachToDocument: true,
-        stubs: {
-          RouterLink: RouterLinkStub
-        },
-        context: {
-          props: {
-            to: '/test'
-          }
-        },
-        slots: {
-          default: '<div>Hi</div>'
-        }
-      })
-
-      expect(wrapper.isVueInstance()).toBe(true)
-      expect(wrapper.contains(RouterLinkStub)).toBe(true)
-
-      const link = wrapper.find(RouterLinkStub)
-
-      expect(link.vm.$props.to).toBe('/test/')
-    })
   })
   describe('external', () => {
     it('does trigger external on http link', () => {
