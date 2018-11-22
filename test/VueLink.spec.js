@@ -54,7 +54,7 @@ describe('VueLink', () => {
       expect(wrapper.isVueInstance()).toBe(false)
       expect(wrapper.contains(RouterLinkStub)).toBe(false)
 
-      expect(wrapper.html()).toBe('<a href="http://example.com/"><div>Hi</div></a>')
+      expect(wrapper.html()).toMatchSnapshot()
     })
     it('does trigger external on https link', () => {
       const wrapper = mount(VueLink, {
@@ -76,7 +76,7 @@ describe('VueLink', () => {
       expect(wrapper.isVueInstance()).toBe(false)
       expect(wrapper.contains(RouterLinkStub)).toBe(false)
 
-      expect(wrapper.html()).toBe('<a href="https://example.com/"><div>Hi</div></a>')
+      expect(wrapper.html()).toMatchSnapshot()
     })
     it('does trigger external on // link', () => {
       const wrapper = mount(VueLink, {
@@ -98,7 +98,7 @@ describe('VueLink', () => {
       expect(wrapper.isVueInstance()).toBe(false)
       expect(wrapper.contains(RouterLinkStub)).toBe(false)
 
-      expect(wrapper.html()).toBe('<a href="//example.com/"><div>Hi</div></a>')
+      expect(wrapper.html()).toMatchSnapshot()
     })
     it('does trigger external on external prop set', () => {
       const wrapper = mount(VueLink, {
@@ -121,7 +121,7 @@ describe('VueLink', () => {
       expect(wrapper.isVueInstance()).toBe(false)
       expect(wrapper.contains(RouterLinkStub)).toBe(false)
 
-      expect(wrapper.html()).toBe('<a href="/far-away"><div>Hi</div></a>')
+      expect(wrapper.html()).toMatchSnapshot()
     })
     it('does set rel correctly', () => {
       const wrapper = mount(VueLink, {
@@ -144,7 +144,7 @@ describe('VueLink', () => {
       expect(wrapper.isVueInstance()).toBe(false)
       expect(wrapper.contains(RouterLinkStub)).toBe(false)
 
-      expect(wrapper.html()).toBe('<a href="http://example.com" rel="nofollow"><div>Hi</div></a>')
+      expect(wrapper.html()).toMatchSnapshot()
     })
     it('does set target on newTab correctly', () => {
       const wrapper = mount(VueLink, {
@@ -167,7 +167,7 @@ describe('VueLink', () => {
       expect(wrapper.isVueInstance()).toBe(false)
       expect(wrapper.contains(RouterLinkStub)).toBe(false)
 
-      expect(wrapper.html()).toBe('<a href="http://example.com" target="_blank"><div>Hi</div></a>')
+      expect(wrapper.html()).toMatchSnapshot()
     })
     it('does set target on prop correctly', () => {
       const wrapper = mount(VueLink, {
@@ -190,7 +190,7 @@ describe('VueLink', () => {
       expect(wrapper.isVueInstance()).toBe(false)
       expect(wrapper.contains(RouterLinkStub)).toBe(false)
 
-      expect(wrapper.html()).toBe('<a href="https://example.com" target="_parent"><div>Hi</div></a>')
+      expect(wrapper.html()).toMatchSnapshot()
     })
     it('does not bind href if unset', () => {
       const wrapper = mount(VueLink, {
@@ -207,7 +207,7 @@ describe('VueLink', () => {
       expect(wrapper.isVueInstance()).toBe(false)
       expect(wrapper.contains(RouterLinkStub)).toBe(false)
 
-      expect(wrapper.html()).toBe('<a><div>Hi</div></a>')
+      expect(wrapper.html()).toMatchSnapshot()
     })
   })
 })

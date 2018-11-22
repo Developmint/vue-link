@@ -1,0 +1,49 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`VueLink external does not bind href if unset 1`] = `
+<a rel="noopener">
+  <div>Hi</div>
+</a>
+`;
+
+exports[`VueLink external does set rel correctly 1`] = `
+<a href="http://example.com" rel="nofollow">
+  <div>Hi</div>
+</a>
+`;
+
+exports[`VueLink external does set target on newTab correctly 1`] = `
+<a href="http://example.com" rel="noopener" target="_blank">
+  <div>Hi</div>
+</a>
+`;
+
+exports[`VueLink external does set target on prop correctly 1`] = `
+<a href="https://example.com" rel="noopener" target="_parent">
+  <div>Hi</div>
+</a>
+`;
+
+exports[`VueLink external does trigger external on // link 1`] = `
+<a href="//example.com/" rel="noopener">
+  <div>Hi</div>
+</a>
+`;
+
+exports[`VueLink external does trigger external on external prop set 1`] = `
+<a href="/far-away" rel="noopener">
+  <div>Hi</div>
+</a>
+`;
+
+exports[`VueLink external does trigger external on http link 1`] = `
+<a href="http://example.com/" rel="noopener">
+  <div>Hi</div>
+</a>
+`;
+
+exports[`VueLink external does trigger external on https link 1`] = `
+<a href="https://example.com/" rel="noopener">
+  <div>Hi</div>
+</a>
+`;
