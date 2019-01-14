@@ -262,6 +262,26 @@ describe('VueLink', () => {
 
       expect(wrapper.html()).toMatchSnapshot()
     })
+    it('does bind classp', () => {
+      const wrapper = mount(VueLink, {
+        localVue,
+        attachToDocument: true,
+        stubs: {
+          RouterLink: RouterLinkStub
+        },
+        context: {
+          staticClass: 'static'
+        },
+        slots: {
+          default: '<div>Hi</div>'
+        }
+      })
+
+      expect(wrapper.isVueInstance()).toBe(false)
+      expect(wrapper.contains(RouterLinkStub)).toBe(false)
+
+      expect(wrapper.html()).toMatchSnapshot()
+    })
   })
 })
 

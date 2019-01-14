@@ -1,5 +1,11 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`VueLink external does bind classp 1`] = `
+<a rel="noopener" class="static">
+  <div>Hi</div>
+</a>
+`;
+
 exports[`VueLink external does bind custom prop 1`] = `
 <a title="ABC" rel="noopener">
   <div>Hi</div>
