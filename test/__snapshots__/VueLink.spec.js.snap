@@ -1,5 +1,11 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`VueLink external does bind custom prop 1`] = `
+<a title="ABC" rel="noopener">
+  <div>Hi</div>
+</a>
+`;
+
 exports[`VueLink external does not bind href if unset 1`] = `
 <a rel="noopener">
   <div>Hi</div>
@@ -44,6 +50,12 @@ exports[`VueLink external does trigger external on http link 1`] = `
 
 exports[`VueLink external does trigger external on https link 1`] = `
 <a href="https://example.com/" rel="noopener">
+  <div>Hi</div>
+</a>
+`;
+
+exports[`VueLink router-link does apply custom props 1`] = `
+<a>
   <div>Hi</div>
 </a>
 `;

@@ -37,6 +37,32 @@ describe('VueLink', () => {
 
       expect(link.vm.$props.to).toBe('/test')
     })
+    it('does apply custom props', () => {
+      const wrapper = mount(VueLink, {
+        localVue,
+        attachToDocument: true,
+        stubs: {
+          RouterLink: RouterLinkStub
+        },
+        context: {
+          props: {
+            to: '/test',
+            title: 'ABC'
+          }
+        },
+        slots: {
+          default: '<div>Hi</div>'
+        }
+      })
+
+      expect(wrapper.isVueInstance()).toBe(true)
+      expect(wrapper.contains(RouterLinkStub)).toBe(true)
+
+      const link = wrapper.find(RouterLinkStub)
+
+      expect(link.vm.$props.to).toBe('/test')
+      expect(wrapper.html()).toMatchSnapshot()
+    })
   })
   describe('external', () => {
     it('does trigger external on http link', () => {
@@ -206,6 +232,28 @@ describe('VueLink', () => {
         },
         slots: {
           default: hiComponent
+        }
+      })
+
+      expect(wrapper.isVueInstance()).toBe(false)
+      expect(wrapper.contains(RouterLinkStub)).toBe(false)
+
+      expect(wrapper.html()).toMatchSnapshot()
+    })
+    it('does bind custom prop', () => {
+      const wrapper = mount(VueLink, {
+        localVue,
+        attachToDocument: true,
+        stubs: {
+          RouterLink: RouterLinkStub
+        },
+        context: {
+          attrs: {
+            title: 'ABC'
+          }
+        },
+        slots: {
+          default: '<div>Hi</div>'
         }
       })
 
