@@ -6,6 +6,11 @@ import { VueLink, VueLinkAddSlash, VueLinkStripSlash } from '../lib'
 const localVue = createLocalVue()
 localVue.use(VueRouter)
 
+const hiComponent = {
+  name: 'hi-component',
+  template: '<div>Hi</div>'
+}
+
 describe('VueLink', () => {
   describe('router-link', () => {
     it('does link to the correct internal page', () => {
@@ -21,7 +26,7 @@ describe('VueLink', () => {
           }
         },
         slots: {
-          default: '<div>Hi</div>'
+          default: hiComponent
         }
       })
 
@@ -47,7 +52,7 @@ describe('VueLink', () => {
           }
         },
         slots: {
-          default: '<div>Hi</div>'
+          default: hiComponent
         }
       })
 
@@ -69,7 +74,7 @@ describe('VueLink', () => {
           }
         },
         slots: {
-          default: '<div>Hi</div>'
+          default: hiComponent
         }
       })
 
@@ -91,7 +96,7 @@ describe('VueLink', () => {
           }
         },
         slots: {
-          default: '<div>Hi</div>'
+          default: hiComponent
         }
       })
 
@@ -114,7 +119,7 @@ describe('VueLink', () => {
           }
         },
         slots: {
-          default: '<div>Hi</div>'
+          default: hiComponent
         }
       })
 
@@ -137,7 +142,7 @@ describe('VueLink', () => {
           }
         },
         slots: {
-          default: '<div>Hi</div>'
+          default: hiComponent
         }
       })
 
@@ -160,7 +165,7 @@ describe('VueLink', () => {
           }
         },
         slots: {
-          default: '<div>Hi</div>'
+          default: hiComponent
         }
       })
 
@@ -183,7 +188,7 @@ describe('VueLink', () => {
           }
         },
         slots: {
-          default: '<div>Hi</div>'
+          default: hiComponent
         }
       })
 
@@ -200,7 +205,7 @@ describe('VueLink', () => {
           RouterLink: RouterLinkStub
         },
         slots: {
-          default: '<div>Hi</div>'
+          default: hiComponent
         }
       })
 
@@ -226,7 +231,7 @@ describe('VueLinkStripSlash', () => {
         }
       },
       slots: {
-        default: '<div>Hi</div>'
+        default: hiComponent
       }
     })
 
@@ -250,7 +255,7 @@ describe('VueLinkStripSlash', () => {
         }
       },
       slots: {
-        default: '<div>Hi</div>'
+        default: hiComponent
       }
     })
 
@@ -274,7 +279,7 @@ describe('VueLinkStripSlash', () => {
         }
       },
       slots: {
-        default: '<div>Hi</div>'
+        default: hiComponent
       }
     })
 
@@ -298,7 +303,7 @@ describe('VueLinkStripSlash', () => {
         }
       },
       slots: {
-        default: '<div>Hi</div>'
+        default: hiComponent
       }
     })
 
@@ -325,7 +330,7 @@ describe('VueLinkAddSlash', () => {
         }
       },
       slots: {
-        default: '<div>Hi</div>'
+        default: hiComponent
       }
     })
 
@@ -349,7 +354,7 @@ describe('VueLinkAddSlash', () => {
         }
       },
       slots: {
-        default: '<div>Hi</div>'
+        default: hiComponent
       }
     })
 
@@ -373,7 +378,7 @@ describe('VueLinkAddSlash', () => {
         }
       },
       slots: {
-        default: '<div>Hi</div>'
+        default: hiComponent
       }
     })
 
@@ -397,7 +402,7 @@ describe('VueLinkAddSlash', () => {
         }
       },
       slots: {
-        default: '<div>Hi</div>'
+        default: hiComponent
       }
     })
 
