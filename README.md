@@ -65,7 +65,7 @@ Sorry! No CDN available for VueLink right now.
 ### Handling
 
 Before going into detail, keep in mind that you can customize the component
-as you can do it with a normal `<a>` or `<vue-link>`/`<nuxt-link>` tag.
+as you can do it with a normal `<a>` or `<router-link>`/`<nuxt-link>` tag.
 
 All props will be passed down to the internal implementation of `vue-link`
 in case the link is not external.
@@ -89,12 +89,14 @@ You can use the `external` prop to force treating it as external link as well.
 
 ### Types
 
-With `v.1.4.0` two extra components were introduced that reflect the `slashes` settings.
+With `v1.4.0` two extra components were introduced that reflect the `slashes` settings.
 You can import them (like the normal `VueLink` component as named imports).
 The `default` export of the package is still the normal `VueLink` component so no breaking changes
-have been introduced
+have been introduced.
 
-`import { VueLink, VueLinkAddSlash, VueLinkStripSlash } from '../lib'`
+Since `v1.6.0`, a dedicated `ForNuxt` export is available that'll use `NuxtLink` instead of `RouterLink` under the hood 
+
+`import { VueLink, VueLinkAddSlash, VueLinkStripSlash, ForNuxt } from '../lib'`
 
 ### Example usage
 
