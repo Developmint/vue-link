@@ -1,15 +1,12 @@
 /* eslint-disable no-console */
 import { createLocalVue, mount, RouterLinkStub } from '@vue/test-utils'
 import VueRouter from 'vue-router'
-import { VueLink, VueLinkAddSlash, VueLinkStripSlash, ForNuxt } from '../lib'
+import { ForNuxt, VueLink, VueLinkAddSlash, VueLinkStripSlash } from '../lib'
 
 const localVue = createLocalVue()
 localVue.use(VueRouter)
 
-const hiComponent = {
-  name: 'hi-component',
-  template: '<div>Hi</div>'
-}
+const hiComponent = '<div>Hi</div>'
 
 describe('VueLink', () => {
   describe('router-link', () => {
@@ -61,7 +58,7 @@ describe('VueLink', () => {
       const link = wrapper.find(RouterLinkStub)
 
       expect(link.vm.$props.to).toBe('/test')
-      expect(wrapper.html()).toMatchSnapshot()
+      expect(wrapper).toMatchSnapshot()
     })
   })
   describe('external', () => {
@@ -85,7 +82,7 @@ describe('VueLink', () => {
       expect(wrapper.isVueInstance()).toBe(false)
       expect(wrapper.contains(RouterLinkStub)).toBe(false)
 
-      expect(wrapper.html()).toMatchSnapshot()
+      expect(wrapper).toMatchSnapshot()
     })
     it('does trigger external on https link', () => {
       const wrapper = mount(VueLink, {
@@ -107,7 +104,7 @@ describe('VueLink', () => {
       expect(wrapper.isVueInstance()).toBe(false)
       expect(wrapper.contains(RouterLinkStub)).toBe(false)
 
-      expect(wrapper.html()).toMatchSnapshot()
+      expect(wrapper).toMatchSnapshot()
     })
     it('does trigger external on // link', () => {
       const wrapper = mount(VueLink, {
@@ -129,7 +126,7 @@ describe('VueLink', () => {
       expect(wrapper.isVueInstance()).toBe(false)
       expect(wrapper.contains(RouterLinkStub)).toBe(false)
 
-      expect(wrapper.html()).toMatchSnapshot()
+      expect(wrapper).toMatchSnapshot()
     })
     it('does trigger external on external prop set', () => {
       const wrapper = mount(VueLink, {
@@ -152,7 +149,7 @@ describe('VueLink', () => {
       expect(wrapper.isVueInstance()).toBe(false)
       expect(wrapper.contains(RouterLinkStub)).toBe(false)
 
-      expect(wrapper.html()).toMatchSnapshot()
+      expect(wrapper).toMatchSnapshot()
     })
     it('does set rel correctly', () => {
       const wrapper = mount(VueLink, {
@@ -175,7 +172,7 @@ describe('VueLink', () => {
       expect(wrapper.isVueInstance()).toBe(false)
       expect(wrapper.contains(RouterLinkStub)).toBe(false)
 
-      expect(wrapper.html()).toMatchSnapshot()
+      expect(wrapper).toMatchSnapshot()
     })
     it('does set target on newTab correctly', () => {
       const wrapper = mount(VueLink, {
@@ -198,7 +195,7 @@ describe('VueLink', () => {
       expect(wrapper.isVueInstance()).toBe(false)
       expect(wrapper.contains(RouterLinkStub)).toBe(false)
 
-      expect(wrapper.html()).toMatchSnapshot()
+      expect(wrapper).toMatchSnapshot()
     })
     it('does set target on prop correctly', () => {
       const wrapper = mount(VueLink, {
@@ -221,7 +218,7 @@ describe('VueLink', () => {
       expect(wrapper.isVueInstance()).toBe(false)
       expect(wrapper.contains(RouterLinkStub)).toBe(false)
 
-      expect(wrapper.html()).toMatchSnapshot()
+      expect(wrapper).toMatchSnapshot()
     })
     it('does not bind href if unset', () => {
       const wrapper = mount(VueLink, {
@@ -238,7 +235,7 @@ describe('VueLink', () => {
       expect(wrapper.isVueInstance()).toBe(false)
       expect(wrapper.contains(RouterLinkStub)).toBe(false)
 
-      expect(wrapper.html()).toMatchSnapshot()
+      expect(wrapper).toMatchSnapshot()
     })
     it('does bind custom prop', () => {
       const wrapper = mount(VueLink, {
@@ -260,7 +257,7 @@ describe('VueLink', () => {
       expect(wrapper.isVueInstance()).toBe(false)
       expect(wrapper.contains(RouterLinkStub)).toBe(false)
 
-      expect(wrapper.html()).toMatchSnapshot()
+      expect(wrapper).toMatchSnapshot()
     })
     it('does bind classp', () => {
       const wrapper = mount(VueLink, {
@@ -280,7 +277,7 @@ describe('VueLink', () => {
       expect(wrapper.isVueInstance()).toBe(false)
       expect(wrapper.contains(RouterLinkStub)).toBe(false)
 
-      expect(wrapper.html()).toMatchSnapshot()
+      expect(wrapper).toMatchSnapshot()
     })
   })
 })
@@ -335,7 +332,7 @@ describe('ForNuxt', () => {
       const link = wrapper.find(RouterLinkStub)
 
       expect(link.vm.$props.to).toBe('/test')
-      expect(wrapper.html()).toMatchSnapshot()
+      expect(wrapper).toMatchSnapshot()
     })
   })
 })
