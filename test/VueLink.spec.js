@@ -1,7 +1,7 @@
 /* eslint-disable no-console */
 import { createLocalVue, mount, RouterLinkStub } from '@vue/test-utils'
 import VueRouter from 'vue-router'
-import { VueLink, VueLinkAddSlash, VueLinkStripSlash } from '../lib'
+import { VueLink, VueLinkAddSlash, VueLinkStripSlash, ForNuxt } from '../lib'
 
 const localVue = createLocalVue()
 localVue.use(VueRouter)
@@ -280,6 +280,61 @@ describe('VueLink', () => {
       expect(wrapper.isVueInstance()).toBe(false)
       expect(wrapper.contains(RouterLinkStub)).toBe(false)
 
+      expect(wrapper.html()).toMatchSnapshot()
+    })
+  })
+})
+
+describe('ForNuxt', () => {
+  describe('nuxt-link', () => {
+    it('does link to the correct internal page', () => {
+      const wrapper = mount(ForNuxt, {
+        localVue,
+        attachToDocument: true,
+        stubs: {
+          NuxtLink: RouterLinkStub
+        },
+        context: {
+          props: {
+            to: '/test'
+          }
+        },
+        slots: {
+          default: hiComponent
+        }
+      })
+
+      expect(wrapper.isVueInstance()).toBe(true)
+      expect(wrapper.contains(RouterLinkStub)).toBe(true)
+
+      const link = wrapper.find(RouterLinkStub)
+
+      expect(link.vm.$props.to).toBe('/test')
+    })
+    it('does apply custom props', () => {
+      const wrapper = mount(ForNuxt, {
+        localVue,
+        attachToDocument: true,
+        stubs: {
+          NuxtLink: RouterLinkStub
+        },
+        context: {
+          props: {
+            to: '/test',
+            title: 'ABC'
+          }
+        },
+        slots: {
+          default: '<div>Hi</div>'
+        }
+      })
+
+      expect(wrapper.isVueInstance()).toBe(true)
+      expect(wrapper.contains(RouterLinkStub)).toBe(true)
+
+      const link = wrapper.find(RouterLinkStub)
+
+      expect(link.vm.$props.to).toBe('/test')
       expect(wrapper.html()).toMatchSnapshot()
     })
   })
