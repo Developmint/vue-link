@@ -259,7 +259,7 @@ describe('VueLink', () => {
 
       expect(wrapper).toMatchSnapshot()
     })
-    it('does bind classp', () => {
+    it('does bind class', () => {
       const wrapper = mount(VueLink, {
         localVue,
         attachToDocument: true,
