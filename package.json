@@ -85,7 +85,7 @@
     "vue-template-compiler": "^2.6.9"
   },
   "dependencies": {
-    "vue": "^2.6.9"
+    "vue": "^3.4.21"
   },
   "husky": {
     "hooks": {
